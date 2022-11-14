@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 //First Route
 
-Route::get('/semakan-cukai-tanah', function () {
-    return view('welcome');
+Route::get('/', function () {
+    return view('hello',[
+        'name' => 'Farhan',
+        'age' => '24'
+    ]);
 });
 
 // Hello laravel
@@ -33,8 +37,10 @@ Route::get('/hello-laravel/{name}/{age}', function ($name, $age) {
 });
 
 // Simple Calculator 
-Route::get('/calculator/{number}', function ($number) {
-    return view('calculator')->with('number', $number);
+// DI - Dependency Injector
+Route::get('/calculator/{number}', function (Request $request, $number) {
+    // dd($request);
+    return view('calculator')->with('number', $request->number);
 
     // echo "Simple Calculator <br />";
 

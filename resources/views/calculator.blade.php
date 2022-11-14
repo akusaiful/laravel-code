@@ -1,22 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.bizland')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Calculator</title>
-</head>
+@section('title','Calculator')
 
-<body>
+@section('content')
+    <form action="">
+        <input type="text" name="number" value="{{ $number }}">
+        <input type="submit" value="Calculate" class="btn btn-primary">
+    </form>
+
 
     <h1>Calculator : {{ $number }}</h1>
 
-    @foreach (range(1, 12) as $key )
+    @foreach (range(1, 12) as $key)
         {{ $key }} * {{ $number }} = {{ $key * $number }} <br />
     @endforeach
+@endsection
 
-
-</body>
-
-</html>
+@section('js')
